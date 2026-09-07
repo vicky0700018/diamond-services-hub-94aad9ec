@@ -16,9 +16,12 @@ import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as PricingEstimatorRouteImport } from './routes/pricing-estimator'
 import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
+import { Route as AdminIndustriesRouteImport } from './routes/admin.industries'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminPortfolioRouteImport } from './routes/admin.portfolio'
+import { Route as AdminPricingRouteImport } from './routes/admin.pricing'
 import { Route as AdminServicesRouteImport } from './routes/admin.services'
+import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
@@ -57,6 +60,11 @@ const AdminDashboardRoute = AdminDashboardRouteImport.update({
   path: '/admin/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndustriesRoute = AdminIndustriesRouteImport.update({
+  id: '/admin/industries',
+  path: '/admin/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -67,9 +75,19 @@ const AdminPortfolioRoute = AdminPortfolioRouteImport.update({
   path: '/admin/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminPricingRoute = AdminPricingRouteImport.update({
+  id: '/admin/pricing',
+  path: '/admin/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminServicesRoute = AdminServicesRouteImport.update({
   id: '/admin/services',
   path: '/admin/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
+  id: '/admin/testimonials',
+  path: '/admin/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -91,9 +109,12 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/pricing-estimator': typeof PricingEstimatorRoute
   '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/industries': typeof AdminIndustriesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/portfolio': typeof AdminPortfolioRoute
+  '/admin/pricing': typeof AdminPricingRoute
   '/admin/services': typeof AdminServicesRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -105,9 +126,12 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/pricing-estimator': typeof PricingEstimatorRoute
   '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/industries': typeof AdminIndustriesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/portfolio': typeof AdminPortfolioRoute
+  '/admin/pricing': typeof AdminPricingRoute
   '/admin/services': typeof AdminServicesRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -120,9 +144,12 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/pricing-estimator': typeof PricingEstimatorRoute
   '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/industries': typeof AdminIndustriesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/portfolio': typeof AdminPortfolioRoute
+  '/admin/pricing': typeof AdminPricingRoute
   '/admin/services': typeof AdminServicesRoute
+  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -136,9 +163,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing-estimator'
     | '/admin/dashboard'
+    | '/admin/industries'
     | '/admin/login'
     | '/admin/portfolio'
+    | '/admin/pricing'
     | '/admin/services'
+    | '/admin/testimonials'
     | '/services/$slug'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -150,9 +180,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing-estimator'
     | '/admin/dashboard'
+    | '/admin/industries'
     | '/admin/login'
     | '/admin/portfolio'
+    | '/admin/pricing'
     | '/admin/services'
+    | '/admin/testimonials'
     | '/services/$slug'
     | '/services'
   id:
@@ -164,9 +197,12 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/pricing-estimator'
     | '/admin/dashboard'
+    | '/admin/industries'
     | '/admin/login'
     | '/admin/portfolio'
+    | '/admin/pricing'
     | '/admin/services'
+    | '/admin/testimonials'
     | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -179,9 +215,12 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   PricingEstimatorRoute: typeof PricingEstimatorRoute
   AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminIndustriesRoute: typeof AdminIndustriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminPortfolioRoute: typeof AdminPortfolioRoute
+  AdminPricingRoute: typeof AdminPricingRoute
   AdminServicesRoute: typeof AdminServicesRoute
+  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
@@ -237,6 +276,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminDashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/industries': {
+      id: '/admin/industries'
+      path: '/admin/industries'
+      fullPath: '/admin/industries'
+      preLoaderRoute: typeof AdminIndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -251,11 +297,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/pricing': {
+      id: '/admin/pricing'
+      path: '/admin/pricing'
+      fullPath: '/admin/pricing'
+      preLoaderRoute: typeof AdminPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/services': {
       id: '/admin/services'
       path: '/admin/services'
       fullPath: '/admin/services'
       preLoaderRoute: typeof AdminServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/testimonials': {
+      id: '/admin/testimonials'
+      path: '/admin/testimonials'
+      fullPath: '/admin/testimonials'
+      preLoaderRoute: typeof AdminTestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -283,9 +343,12 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   PricingEstimatorRoute: PricingEstimatorRoute,
   AdminDashboardRoute: AdminDashboardRoute,
+  AdminIndustriesRoute: AdminIndustriesRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminPortfolioRoute: AdminPortfolioRoute,
+  AdminPricingRoute: AdminPricingRoute,
   AdminServicesRoute: AdminServicesRoute,
+  AdminTestimonialsRoute: AdminTestimonialsRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
