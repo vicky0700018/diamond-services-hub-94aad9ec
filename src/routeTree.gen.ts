@@ -18,8 +18,10 @@ import { Route as PricingEstimatorRouteImport } from './routes/pricing-estimator
 import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
 import { Route as AdminIndustriesRouteImport } from './routes/admin.industries'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 import { Route as AdminPortfolioRouteImport } from './routes/admin.portfolio'
 import { Route as AdminPricingRouteImport } from './routes/admin.pricing'
+import { Route as AdminQuotesRouteImport } from './routes/admin.quotes'
 import { Route as AdminServicesRouteImport } from './routes/admin.services'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -70,6 +72,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/admin/messages',
+  path: '/admin/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminPortfolioRoute = AdminPortfolioRouteImport.update({
   id: '/admin/portfolio',
   path: '/admin/portfolio',
@@ -78,6 +85,11 @@ const AdminPortfolioRoute = AdminPortfolioRouteImport.update({
 const AdminPricingRoute = AdminPricingRouteImport.update({
   id: '/admin/pricing',
   path: '/admin/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminQuotesRoute = AdminQuotesRouteImport.update({
+  id: '/admin/quotes',
+  path: '/admin/quotes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminServicesRoute = AdminServicesRouteImport.update({
@@ -111,8 +123,10 @@ export interface FileRoutesByFullPath {
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/industries': typeof AdminIndustriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/messages': typeof AdminMessagesRoute
   '/admin/portfolio': typeof AdminPortfolioRoute
   '/admin/pricing': typeof AdminPricingRoute
+  '/admin/quotes': typeof AdminQuotesRoute
   '/admin/services': typeof AdminServicesRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -128,8 +142,10 @@ export interface FileRoutesByTo {
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/industries': typeof AdminIndustriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/messages': typeof AdminMessagesRoute
   '/admin/portfolio': typeof AdminPortfolioRoute
   '/admin/pricing': typeof AdminPricingRoute
+  '/admin/quotes': typeof AdminQuotesRoute
   '/admin/services': typeof AdminServicesRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -146,8 +162,10 @@ export interface FileRoutesById {
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/industries': typeof AdminIndustriesRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/messages': typeof AdminMessagesRoute
   '/admin/portfolio': typeof AdminPortfolioRoute
   '/admin/pricing': typeof AdminPricingRoute
+  '/admin/quotes': typeof AdminQuotesRoute
   '/admin/services': typeof AdminServicesRoute
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -165,8 +183,10 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/industries'
     | '/admin/login'
+    | '/admin/messages'
     | '/admin/portfolio'
     | '/admin/pricing'
+    | '/admin/quotes'
     | '/admin/services'
     | '/admin/testimonials'
     | '/services/$slug'
@@ -182,8 +202,10 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/industries'
     | '/admin/login'
+    | '/admin/messages'
     | '/admin/portfolio'
     | '/admin/pricing'
+    | '/admin/quotes'
     | '/admin/services'
     | '/admin/testimonials'
     | '/services/$slug'
@@ -199,8 +221,10 @@ export interface FileRouteTypes {
     | '/admin/dashboard'
     | '/admin/industries'
     | '/admin/login'
+    | '/admin/messages'
     | '/admin/portfolio'
     | '/admin/pricing'
+    | '/admin/quotes'
     | '/admin/services'
     | '/admin/testimonials'
     | '/services/$slug'
@@ -217,8 +241,10 @@ export interface RootRouteChildren {
   AdminDashboardRoute: typeof AdminDashboardRoute
   AdminIndustriesRoute: typeof AdminIndustriesRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
   AdminPortfolioRoute: typeof AdminPortfolioRoute
   AdminPricingRoute: typeof AdminPricingRoute
+  AdminQuotesRoute: typeof AdminQuotesRoute
   AdminServicesRoute: typeof AdminServicesRoute
   AdminTestimonialsRoute: typeof AdminTestimonialsRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -290,6 +316,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/admin/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/portfolio': {
       id: '/admin/portfolio'
       path: '/admin/portfolio'
@@ -302,6 +335,13 @@ declare module '@tanstack/react-router' {
       path: '/admin/pricing'
       fullPath: '/admin/pricing'
       preLoaderRoute: typeof AdminPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/quotes': {
+      id: '/admin/quotes'
+      path: '/admin/quotes'
+      fullPath: '/admin/quotes'
+      preLoaderRoute: typeof AdminQuotesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/services': {
@@ -345,8 +385,10 @@ const rootRouteChildren: RootRouteChildren = {
   AdminDashboardRoute: AdminDashboardRoute,
   AdminIndustriesRoute: AdminIndustriesRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
   AdminPortfolioRoute: AdminPortfolioRoute,
   AdminPricingRoute: AdminPricingRoute,
+  AdminQuotesRoute: AdminQuotesRoute,
   AdminServicesRoute: AdminServicesRoute,
   AdminTestimonialsRoute: AdminTestimonialsRoute,
   ServicesSlugRoute: ServicesSlugRoute,
